@@ -5,23 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>ثبير | Thabeer</title>
   <meta name="description" content="ثبير دليلكم الذكي للتعلم والتدريب المستمر. منصة للربط بين الطلاب والمعلمين والمراكز التدريبية في المملكة العربية السعودية." />
-  <meta name="theme-color" content="#4a154b" />
+  <meta name="theme-color" content="#2e003e" />
   <meta property="og:title" content="ثبير | Thabeer" />
   <meta property="og:description" content="دليلكم الذكي للتعلم والتدريب المستمر" />
-  <!-- شعار الجبل باللون البنفسجي والأبيض -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CiAgPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNyIgZmlsbD0iIzRBMTU0QiIvPgogIDxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik02IDI0TDE2IDhsMTAgMTZIMnogTTE1IDE0bC01IDdoMTBsLTUtN3oiLz4KPC9zdmc+" />
+  <!-- شعار الجبل -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CiAgPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNyIgZmlsbD0iIzJFMDAzRSIvPgogIDxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik02IDI0TDE2IDhsMTAgMTZIMnogTTE1IDE0bC01IDdoMTBsLTUtN3oiLz4KPC9zdmc+" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
 :root {
-  --paper: #faf7f9;
-  --ink: #1f1124;
-  --purple: #4a154b;
-  --purple-light: #611f69;
-  --purple-accent: #8b3a94;
-  --muted: #6a5a70;
-  --line: #e8dfea;
+  --paper: #fcfbfe;
+  --ink: #1a0826;
+  --purple-dark: #2e003e;
+  --purple-main: #4a0e4e;
+  --purple-light: #6a1b6e;
+  --muted: #5a4b62;
+  --line: #e2d7e5;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; }
@@ -40,208 +40,42 @@ body {
 
 h1, h2 { text-wrap: balance; font-weight: 500; }
 
-a:focus-visible { outline: 2px solid var(--purple); outline-offset: 3px; }
+a:focus-visible { outline: 2px solid var(--purple-main); outline-offset: 3px; }
 
 main { min-height: 100vh; }
 .muted { color: var(--muted); }
 .small { font-size: 0.875rem; }
 
 /* Banners */
-.banner { position: relative; isolation: isolate; overflow: hidden; background: var(--purple); }
-.banner > img {
-  position: absolute; inset: 0; width: 100%; height: 100%;
-  object-fit: cover; object-position: center;
-}
-.overlay-purple, .overlay-ink { position: absolute; inset: 0; }
-.overlay-purple { background: var(--purple); }
-.overlay-ink { background: var(--ink); }
-.o45 { opacity: 0.45; } .o50 { opacity: 0.5; }
-.o20 { opacity: 0.2; }  .o25 { opacity: 0.25; }
+.banner { position: relative; isolation: isolate; overflow: hidden; background: var(--purple-dark); }
+.overlay-purple { position: absolute; inset: 0; background: var(--purple-dark); opacity: 0.9; }
 
-.hero { height: 18rem; }
+.hero { height: 16rem; }
 .banner-content {
   position: relative; display: flex; height: 100%;
   align-items: center; justify-content: center; padding: 0 1.5rem;
 }
 .hero-title {
-  text-align: center; font-size: 1.875rem; letter-spacing: 0.025em; color: var(--paper);
+  text-align: center; font-size: 2rem; letter-spacing: 0.025em; color: #ffffff; font-weight: 700;
 }
 
 /* Poem */
-.poem { padding: 4rem 1.5rem; }
+.poem { padding: 3.5rem 1.5rem; }
 .poem p {
   max-width: 48rem; margin: 0 auto; text-align: center;
-  font-size: 1.5rem; font-weight: 500; line-height: 1.625; color: var(--purple);
+  font-size: 1.35rem; font-weight: 600; line-height: 1.625; color: var(--purple-dark);
 }
 
 /* Tagline */
 .tagline-grid {
-  position: relative; display: grid; gap: 2.5rem; padding: 4rem 1.5rem; background: var(--purple);
+  position: relative; display: grid; gap: 2rem; padding: 3.5rem 1.5rem; background: var(--purple-dark);
 }
 .tagline-ar, .tagline-en {
-  font-size: 1.5rem; font-weight: 600; color: var(--paper);
+  font-size: 1.35rem; font-weight: 600; color: #ffffff; text-align: center;
 }
-.tagline-ar { line-height: 1.375; }
-.tagline-en { line-height: 1.25; text-transform: uppercase; letter-spacing: 0.025em; }
+.tagline-ar { line-height: 1.4; }
+.tagline-en { line-height: 1.3; text-transform: uppercase; letter-spacing: 0.025em; }
 
 /* Coming soon */
 .soon { padding: 3.5rem 1.5rem; text-align: center; }
-.soon h2 { font-size: 1.5rem; font-weight: 600; color: var(--purple); }
-.soon .muted { margin-top: 0.5rem; font-size: 1rem; }
-.badges {
-  margin-top: 2rem; display: flex; flex-direction: column;
-  align-items: center; justify-content: center; gap: 1rem;
-}
-.badge {
-  display: flex; align-items: center; gap: 0.75rem;
-  min-height: 4rem; min-width: 16rem; padding: 0.75rem 1rem;
-  border: 1px solid var(--purple); background: var(--paper);
-  border-radius: 8px;
-}
-.badge-icon {
-  display: flex; flex-shrink: 0; align-items: center; justify-content: center;
-  width: 2.75rem; height: 2.75rem; background: var(--purple); color: var(--paper);
-  border-radius: 6px;
-}
-.badge-text { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.25; }
-.badge-soon { font-size: 0.75rem; font-weight: 500; color: var(--purple-accent); }
-.badge-name { font-size: 1rem; font-weight: 600; color: var(--ink); }
-
-/* Facts */
-.facts { max-width: 64rem; margin: 0 auto; padding: 0 1.5rem; }
-.fact { border-bottom: 1px solid var(--line); padding: 2rem 0; text-align: center; }
-.fact h2 { margin-bottom: 0.75rem; font-size: 1.25rem; color: var(--purple); }
-.fact-body p { max-width: 28rem; margin: 0 auto; line-height: 1.625; }
-.mail {
-  display: inline-flex; align-items: center; min-height: 2.75rem;
-  font-size: 0.875rem; font-weight: 500; letter-spacing: 0.025em; color: var(--purple);
-  text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 4px;
-}
-
-/* About */
-.about { max-width: 48rem; margin: 0 auto; padding: 4rem 1.5rem; }
-.about p { text-align: center; font-size: 1.125rem; font-weight: 600; line-height: 1.625; }
-
-/* Services */
-.services { max-width: 64rem; margin: 0 auto; padding: 0 1.5rem 5rem; }
-.services h2 {
-  margin-bottom: 2.5rem; text-align: center; font-size: 1.875rem; color: var(--purple);
-}
-.cards { display: grid; gap: 1rem; }
-.card {
-  display: flex; min-height: 14rem; align-items: center; justify-content: center;
-  padding: 2rem 1.5rem; border: 1px solid var(--purple); border-radius: 8px;
-  background: #ffffff;
-}
-.card p { text-align: center; font-size: 1rem; line-height: 1.625; color: var(--purple); }
-.strong { font-weight: 600; }
-
-/* Footer */
-footer { padding: 1.5rem 1.5rem 6rem; text-align: center; }
-.num { font-variant-numeric: tabular-nums; }
-.privacy {
-  display: inline-flex; align-items: center; min-height: 2.75rem; margin-top: 1rem;
-  font-size: 0.875rem; font-weight: 500; letter-spacing: 0.025em; color: var(--purple);
-  text-decoration: underline; text-underline-offset: 4px;
-}
-
-/* Responsive Media Queries */
-@media (min-width: 640px) {
-  .poem p { font-size: 1.875rem; }
-  .badges { flex-direction: row; }
-  .fact { position: relative; padding: 2.5rem 0; }
-  .fact h2 { position: absolute; top: 50%; right: 0; margin-bottom: 0; transform: translateY(-50%); }
-  .fact-body { padding: 0 10rem; }
-}
-
-@media (min-width: 768px) {
-  .hero { height: 24rem; }
-  .hero-title { font-size: 3rem; }
-  .poem { padding: 6rem 1.5rem; }
-  .poem p { font-size: 3rem; }
-  .tagline-grid {
-    grid-template-columns: 1fr 1fr; align-items: center;
-    gap: 4rem; padding: 6rem 4rem;
-  }
-  .tagline-ar, .tagline-en { font-size: 2.25rem; }
-  .tagline-en { text-align: left; }
-  .soon { padding: 4rem 1.5rem; }
-  .soon h2 { font-size: 1.875rem; }
-  .fact h2 { font-size: 1.5rem; }
-  .about { padding: 6rem 1.5rem; }
-  .about p { font-size: 1.5rem; }
-  .services h2 { font-size: 2.25rem; }
-  .cards { grid-template-columns: repeat(3, 1fr); }
-  .card p { font-size: 1.125rem; }
-}
-  </style>
-</head>
-<body>
-  <main>
-    <!-- Hero Banner -->
-    <section class="banner hero">
-      <div class="overlay-purple o50"></div>
-      <div class="banner-content">
-        <h1 class="hero-title">ثبير | Thabeer</h1>
-      </div>
-    </section>
-
-    <!-- Poem / Intro -->
-    <section class="poem">
-      <p>دليلكم الذكي للتعلم والتدريب المستمر للربط بين الطلاب والمعلمين والمراكز التدريبية</p>
-    </section>
-
-    <!-- Tagline Section -->
-    <section class="tagline-grid">
-      <div class="tagline-ar">منصة تجمع المهارة والتعلم في مكان واحد</div>
-      <div class="tagline-en">Connecting Learners & Trainers</div>
-    </section>
-
-    <!-- Coming Soon / App Badges -->
-    <section class="soon">
-      <h2>قريباً على المتاجر</h2>
-      <p class="muted">تطبيق ثبير سيكون متاحاً قريباً للأجهزة الذكية</p>
-      <div class="badges">
-        <div class="badge">
-          <div class="badge-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-          </div>
-          <div class="badge-text">
-            <span class="badge-soon">قريباً</span>
-            <span class="badge-name">App Store</span>
-          </div>
-        </div>
-        <div class="badge">
-          <div class="badge-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-          </div>
-          <div class="badge-text">
-            <span class="badge-soon">قريباً</span>
-            <span class="badge-name">Google Play</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Services / Features -->
-    <section class="services">
-      <h2>خدمات المنصة</h2>
-      <div class="cards">
-        <div class="card">
-          <p><span class="strong">للطلاب والمتعلمين</span><br>البحث والتواصل مع أفضل المدربين في مختلف المجالات</p>
-        </div>
-        <div class="card">
-          <p><span class="strong">للمدربين والمهاريين</span><br>تقديم الخدمات التدريبية والوصول إلى شريحة أوسع من المتعلمين</p>
-        </div>
-        <div class="card">
-          <p><span class="strong">للمراكز التدريبية</span><br>عرض البرامج والدورات التدريبية وإدارتها بمرونة وفعالية</p>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <p class="muted small">جميع الحقوق محفوظة © <span class="num">2026</span> ثبير</p>
-  </footer>
-</body>
-</html>
+.soon h2 { font-size: 1.5rem; font-weight: 700; color: var(--purple-dark); }
