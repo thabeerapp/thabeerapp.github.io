@@ -1,179 +1,156 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>ثبير | Thabeer</title>
-  <meta name="description" content="ثبير دليلكم الذكي للتعلم والتدريب المستمر. منصة للربط بين الطلاب والمعلمين والمراكز التدريبية في المملكة العربية السعودية.">
-  <meta name="theme-color" content="#2e003e">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta name="description" content="ثبير دليلكم الذكي للتعلم والتدريب المستمر. منصة للربط بين الطلاب والمعلمين والمراكز التدريبية في المملكة العربية السعودية." />
+  <meta name="theme-color" content="#e07428" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ar_SA" />
+  <meta property="og:title" content="ثبير | Thabeer" />
+  <meta property="og:description" content="دليلكم الذكي للتعلم والتدريب المستمر" />
+  <!-- الشعار -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CiAgPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNyIgZmlsbD0iI0ZBRjdGNCIvPgogIDxwYXRoIGZpbGw9IiNFMDc0MjgiIGQ9Ik03IDIyLjVWMTEuMmMwLS43LjQtMS4yIDEuMS0xLjJoNi4yYzEuMSAwIDEuOS42IDEuOSAxLjZ2MTEuNmMtLjUtLjYtMS40LTEtMi40LTFINy44Yy0uNCAwLS44LS4zLS44LS43eiIvPgogIDxwYXRoIGZpbGw9IiMxQzE5MTciIGQ9Ik0yNSAyMi41VjExLjJjMC0uNy0uNC0xLjItMS4xLTEuMmgtNi4yYy0xLjEgMC0xLjkuNi0xLjkgMS42djExLjZjLjUtLjYgMS40LTEgMi40LTFoNS45Yy40IDAgLjktLjMuOS0uN3oiLz4KICA8cmVjdCB4PSIxNS4xIiB5PSIxMCIgd2lkdGg9IjEuOCIgaGVpZ2h0PSIxMy4yIiByeD0iMC42IiBmaWxsPSIjRTA3NDI4Ii8+Cjwvc3ZnPgo=" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    :root {
-      --paper: #fcfbfe;
-      --ink: #1a0826;
-      --purple-dark: #2e003e;
-      --purple-main: #4a0e4e;
-      --purple-light: #6a1b6e;
-      --muted: #5a4b62;
-      --line: #e2d7e5;
-    }
+:root {
+  --paper: #faf7f4;
+  --ink: #1c1917;
+  --orange: #e07428;
+  --orange-deep: #a9591d;
+  --muted: #6f6760;
+  --line: #e6dfd6;
+}
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; }
 
-    body {
-      background-color: var(--paper);
-      color: var(--ink);
-      font-family: "IBM Plex Sans Arabic", sans-serif;
-      line-height: 1.5;
-    }
+html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 
-    main { min-height: 100vh; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "IBM Plex Sans Arabic", system-ui, sans-serif;
+  text-wrap: pretty;
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
 
-    .hero {
-      background-color: var(--purple-dark);
-      padding: 4rem 1.5rem;
-      text-align: center;
-      color: #ffffff;
-    }
+h1, h2 { text-wrap: balance; font-weight: 500; }
 
-    .hero-title {
-      font-size: 2.25rem;
-      font-weight: 700;
-    }
+a:focus-visible { outline: 2px solid var(--orange); outline-offset: 3px; }
 
-    .poem {
-      padding: 3.5rem 1.5rem;
-      text-align: center;
-    }
+main { flex: 1; }
+.muted { color: var(--muted); }
+.small { font-size: 0.875rem; }
 
-    .poem p {
-      max-width: 48rem;
-      margin: 0 auto;
-      font-size: 1.35rem;
-      font-weight: 600;
-      color: var(--purple-dark);
-    }
+/* Hero */
+.hero {
+  height: 16rem;
+  background:
+    linear-gradient(rgba(28,25,23,.2), rgba(28,25,23,.2)),
+    linear-gradient(rgba(224,116,40,.45), rgba(224,116,40,.45)),
+    url("images/light.jpg") center / cover no-repeat var(--orange-deep);
+  display: flex; align-items: center; justify-content: center; padding: 0 1.5rem;
+}
+.hero-title {
+  text-align: center; font-size: 2rem; letter-spacing: 0.025em; color: #ffffff; font-weight: 700;
+}
 
-    .tagline-grid {
-      background-color: var(--purple-dark);
-      padding: 3.5rem 1.5rem;
-      text-align: center;
-      color: #ffffff;
-    }
+/* Intro */
+.poem { padding: 3.5rem 1.5rem; }
+.poem p {
+  max-width: 48rem; margin: 0 auto; text-align: center;
+  font-size: 1.5rem; font-weight: 500; line-height: 1.9; color: var(--orange);
+}
+.poem .intro { margin-top: 1.75rem; font-size: 1rem; font-weight: 400; line-height: 1.7; color: var(--muted); }
 
-    .tagline-ar {
-      font-size: 1.35rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-    }
+/* Tagline */
+.tagline-grid {
+  display: grid; gap: 2rem; padding: 3.5rem 1.5rem;
+  background:
+    linear-gradient(rgba(28,25,23,.25), rgba(28,25,23,.25)),
+    linear-gradient(rgba(224,116,40,.5), rgba(224,116,40,.5)),
+    url("images/light.jpg") center / cover no-repeat var(--orange-deep);
+}
+.tagline-ar, .tagline-en {
+  font-size: 1.35rem; font-weight: 600; color: #ffffff; text-align: center;
+}
+.tagline-ar { line-height: 1.4; }
+.tagline-en { line-height: 1.3; letter-spacing: 0.025em; }
 
-    .tagline-en {
-      font-size: 1.2rem;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-    }
+/* Coming soon */
+.soon { padding: 3.5rem 1.5rem; text-align: center; }
+.soon h2 { font-size: 1.5rem; font-weight: 600; color: var(--orange); }
+.soon .muted { margin-top: 0.5rem; font-size: 0.95rem; }
+.badges {
+  margin-top: 2rem; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 1rem;
+}
+.badge {
+  display: flex; align-items: center; justify-content: center; gap: 0.75rem;
+  min-height: 4rem; min-width: 16rem; padding: 0.75rem 1rem;
+  border: 1px solid var(--orange); background: var(--paper);
+  border-radius: 8px;
+}
+.badge-icon {
+  display: flex; flex-shrink: 0; align-items: center; justify-content: center;
+  width: 2.5rem; height: 2.5rem; background: var(--ink); color: var(--paper);
+  border-radius: 6px;
+}
+.badge-text { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.25; }
+.badge-soon { font-size: 0.75rem; font-weight: 500; color: var(--orange-deep); }
+.badge-name { font-size: 1rem; font-weight: 600; color: var(--ink); }
 
-    .soon {
-      padding: 3.5rem 1.5rem;
-      text-align: center;
-    }
+/* Facts */
+.facts { max-width: 64rem; margin: 0 auto; padding: 0 1.5rem 3rem; }
+.fact { border-bottom: 1px solid var(--line); padding: 1.75rem 0; text-align: center; }
+.fact h2 { margin-bottom: 0.5rem; font-size: 1.15rem; font-weight: 600; color: var(--orange); }
+.fact p { max-width: 28rem; margin: 0 auto; line-height: 1.625; }
+.mail {
+  display: inline-flex; align-items: center; min-height: 2.75rem;
+  font-size: 0.875rem; font-weight: 500; letter-spacing: 0.025em; color: var(--ink);
+  text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 4px;
+}
 
-    .soon h2 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--purple-dark);
-    }
+/* Services */
+.services { max-width: 64rem; margin: 0 auto; padding: 0 1.5rem 4rem; }
+.services h2 {
+  margin-bottom: 2rem; text-align: center; font-size: 1.75rem; color: var(--orange); font-weight: 600;
+}
+.cards { display: grid; gap: 1rem; }
+.card {
+  display: flex; min-height: 11rem; align-items: center; justify-content: center;
+  padding: 1.5rem; border: 1px solid var(--orange); border-radius: 10px;
+  background: var(--paper);
+}
+.card p { text-align: center; font-size: 0.95rem; line-height: 1.6; color: var(--orange-deep); }
+.strong { font-weight: 600; color: var(--orange-deep); display: block; margin-bottom: 0.4rem; font-size: 1.1rem; }
 
-    .soon p {
-      color: var(--muted);
-      margin-top: 0.5rem;
-      font-size: 0.95rem;
-    }
+/* Footer */
+footer {
+  padding: 2.5rem 1.5rem 4rem; text-align: center; border-top: 1px solid var(--line); background: var(--paper);
+}
+.footer-info { display: flex; flex-direction: column; gap: 0.75rem; align-items: center; justify-content: center; }
+.company-name { font-weight: 600; color: var(--ink); font-size: 0.95rem; }
+.num { font-variant-numeric: tabular-nums; }
+.privacy-link {
+  display: inline-flex; align-items: center; min-height: 2.75rem; margin-top: 0.25rem;
+  font-size: 0.875rem; font-weight: 500; letter-spacing: 0.025em; color: var(--ink);
+  text-decoration: underline; text-underline-offset: 4px; transition: color 0.2s;
+}
+.privacy-link:hover { color: var(--orange-deep); }
 
-    .badges {
-      margin-top: 2rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .badge {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.75rem;
-      width: 16rem;
-      padding: 0.75rem 1rem;
-      border: 1px solid var(--purple-main);
-      background: #ffffff;
-      border-radius: 8px;
-    }
-
-    .badge-icon {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 2.5rem;
-      height: 2.5rem;
-      background: var(--purple-dark);
-      color: #ffffff;
-      border-radius: 6px;
-    }
-
-    .badge-text {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    .badge-soon {
-      font-size: 0.75rem;
-      color: var(--purple-light);
-    }
-
-    .badge-name {
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--ink);
-    }
-
-    .services {
-      max-width: 64rem;
-      margin: 0 auto;
-      padding: 0 1.5rem 4rem;
-    }
-
-    .services h2 {
-      margin-bottom: 2rem;
-      text-align: center;
-      font-size: 1.75rem;
-      color: var(--purple-dark);
-      font-weight: 700;
-    }
-
-    .cards {
-      display: grid;
-      gap: 1rem;
-    }
-
-    .card {
-      padding: 1.5rem;
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      background: #ffffff;
-      text-align: center;
-    }
-
-    .strong {
-      font-weight: 700;
-      color: var(--purple-dark);
-      display: block;
-      margin-bottom: 0.4rem;
-      font-size: 1.1rem;
-    }
-
-    footer {
-      padding: 2.5rem 1.5
+/* Responsive */
+@media (min-width: 640px) {
+  .poem p { font-size: 2rem; }
+  .poem .intro { font-size: 1.1rem; }
+  .badges { flex-direction: row; }
+  .fact { position: relative; padding: 2.25rem 0; }
+  .fact h2 { position: absolute; top: 50%; right: 0;
