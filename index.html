@@ -1,61 +1,247 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>ثبير | THABEER</title>
-<meta name="description" content="تطبيق ثبير | دليلكم الذكي للتعلم والتدريب المستمر">
-<link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;600&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#fffcf3;--fg:#1a1a1a;--muted:#555;--orange:#ff6a00;--line:#b9b5a8;
-box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17120d;--fg:#f5efe6;--muted:#b8afa2;--orange:#ff8a33;--line:#4a4237}}
-:root[data-theme="dark"]{--bg:#17120d;--fg:#f5efe6;--muted:#b8afa2;--orange:#ff8a33;--line:#4a4237}
-html{scroll-padding-top:env(safe-area-inset-top,0px)}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--fg);font-family:"Readex Pro","Segoe UI",Tahoma,Arial,sans-serif;line-height:1.9}
-.hero{background:radial-gradient(60% 80% at 25% 80%,#ff6a00 0,transparent 70%),radial-gradient(50% 70% at 80% 30%,#ffa94d 0,transparent 70%),linear-gradient(135deg,#cfd6c8,#f1b99a);color:#fff;text-align:center;padding:90px 20px;font-size:clamp(1.8rem,6vw,3rem);font-weight:300}
-.verse{color:#fff;text-align:center;font-size:clamp(1.5rem,5vw,2.6rem);line-height:2.2;padding:90px 20px;background:radial-gradient(60% 80% at 75% 85%,#ff6a00 0,transparent 70%),radial-gradient(50% 70% at 20% 25%,#ffa94d 0,transparent 70%),linear-gradient(135deg,#cfd6c8,#f1b99a)}
-.banner{position:relative;min-height:340px;display:flex;flex-direction:column;justify-content:space-between;gap:30px;padding:30px 24px;color:#fff;background:radial-gradient(60% 80% at 20% 90%,#ff6a00 0,transparent 70%),radial-gradient(50% 70% at 80% 20%,#ffa94d 0,transparent 70%),linear-gradient(135deg,#cfd6c8,#f1b99a)}
-.banner .ar{font-size:clamp(1.5rem,5vw,2.4rem);font-weight:300;line-height:1.5;max-width:420px}
-.banner .en{direction:ltr;text-align:left;font-size:clamp(1.3rem,4.5vw,2.2rem);font-weight:300;max-width:380px;line-height:1.3}
-.wrap{max-width:900px;margin:0 auto;padding:0 20px}
-.row{display:flex;gap:20px;align-items:center;justify-content:space-between;padding:34px 0;border-bottom:1px solid var(--line)}
-.row h2{color:var(--orange);font-weight:300;font-size:1.5rem;margin:0;flex:0 0 130px}
-.row p{margin:0;flex:1;font-size:.95rem;color:var(--muted)}
-.row a{color:var(--fg)}
-.about{font-weight:600;text-align:center;font-size:clamp(1.1rem,3.4vw,1.5rem);line-height:2.1;padding:70px 0}
-.services h2{color:var(--orange);font-weight:300;font-size:clamp(1.8rem,5vw,2.6rem);margin:0 0 24px}
-.cards{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
-.card{border:1px solid var(--orange);padding:18px;min-height:190px;color:var(--orange);font-size:1.05rem}
-footer{text-align:center;color:var(--muted);font-size:.85rem;padding:80px 20px 40px}
-footer a{color:var(--fg);display:inline-block;margin-top:8px;text-transform:uppercase}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>ثبير | Thabeer</title>
+  <meta name="description" content="ثبير دليلكم الذكي للتعلم والتدريب المستمر. منصة للربط بين الطلاب والمعلمين والمراكز التدريبية في المملكة العربية السعودية." />
+  <meta name="theme-color" content="#4a154b" />
+  <meta property="og:title" content="ثبير | Thabeer" />
+  <meta property="og:description" content="دليلكم الذكي للتعلم والتدريب المستمر" />
+  <!-- شعار الجبل باللون البنفسجي والأبيض -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CiAgPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNyIgZmlsbD0iIzRBMTU0QiIvPgogIDxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik02IDI0TDE2IDhsMTAgMTZIMnogTTE1IDE0bC01IDdoMTBsLTUtN3oiLz4KPC9zdmc+" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+:root {
+  --paper: #faf7f9;
+  --ink: #1f1124;
+  --purple: #4a154b;
+  --purple-light: #611f69;
+  --purple-accent: #8b3a94;
+  --muted: #6a5a70;
+  --line: #e8dfea;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; }
+
+html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "IBM Plex Sans Arabic", system-ui, sans-serif;
+  text-wrap: pretty;
+  line-height: 1.5;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+h1, h2 { text-wrap: balance; font-weight: 500; }
+
+a:focus-visible { outline: 2px solid var(--purple); outline-offset: 3px; }
+
+main { min-height: 100vh; }
+.muted { color: var(--muted); }
+.small { font-size: 0.875rem; }
+
+/* Banners */
+.banner { position: relative; isolation: isolate; overflow: hidden; background: var(--purple); }
+.banner > img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
+}
+.overlay-purple, .overlay-ink { position: absolute; inset: 0; }
+.overlay-purple { background: var(--purple); }
+.overlay-ink { background: var(--ink); }
+.o45 { opacity: 0.45; } .o50 { opacity: 0.5; }
+.o20 { opacity: 0.2; }  .o25 { opacity: 0.25; }
+
+.hero { height: 18rem; }
+.banner-content {
+  position: relative; display: flex; height: 100%;
+  align-items: center; justify-content: center; padding: 0 1.5rem;
+}
+.hero-title {
+  text-align: center; font-size: 1.875rem; letter-spacing: 0.025em; color: var(--paper);
+}
+
+/* Poem */
+.poem { padding: 4rem 1.5rem; }
+.poem p {
+  max-width: 48rem; margin: 0 auto; text-align: center;
+  font-size: 1.5rem; font-weight: 500; line-height: 1.625; color: var(--purple);
+}
+
+/* Tagline */
+.tagline-grid {
+  position: relative; display: grid; gap: 2.5rem; padding: 4rem 1.5rem; background: var(--purple);
+}
+.tagline-ar, .tagline-en {
+  font-size: 1.5rem; font-weight: 600; color: var(--paper);
+}
+.tagline-ar { line-height: 1.375; }
+.tagline-en { line-height: 1.25; text-transform: uppercase; letter-spacing: 0.025em; }
+
+/* Coming soon */
+.soon { padding: 3.5rem 1.5rem; text-align: center; }
+.soon h2 { font-size: 1.5rem; font-weight: 600; color: var(--purple); }
+.soon .muted { margin-top: 0.5rem; font-size: 1rem; }
+.badges {
+  margin-top: 2rem; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 1rem;
+}
+.badge {
+  display: flex; align-items: center; gap: 0.75rem;
+  min-height: 4rem; min-width: 16rem; padding: 0.75rem 1rem;
+  border: 1px solid var(--purple); background: var(--paper);
+  border-radius: 8px;
+}
+.badge-icon {
+  display: flex; flex-shrink: 0; align-items: center; justify-content: center;
+  width: 2.75rem; height: 2.75rem; background: var(--purple); color: var(--paper);
+  border-radius: 6px;
+}
+.badge-text { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.25; }
+.badge-soon { font-size: 0.75rem; font-weight: 500; color: var(--purple-accent); }
+.badge-name { font-size: 1rem; font-weight: 600; color: var(--ink); }
+
+/* Facts */
+.facts { max-width: 64rem; margin: 0 auto; padding: 0 1.5rem; }
+.fact { border-bottom: 1px solid var(--line); padding: 2rem 0; text-align: center; }
+.fact h2 { margin-bottom: 0.75rem; font-size: 1.25rem; color: var(--purple); }
+.fact-body p { max-width: 28rem; margin: 0 auto; line-height: 1.625; }
+.mail {
+  display: inline-flex; align-items: center; min-height: 2.75rem;
+  font-size: 0.875rem; font-weight: 500; letter-spacing: 0.025em; color: var(--purple);
+  text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 4px;
+}
+
+/* About */
+.about { max-width: 48rem; margin: 0 auto; padding: 4rem 1.5rem; }
+.about p { text-align: center; font-size: 1.125rem; font-weight: 600; line-height: 1.625; }
+
+/* Services */
+.services { max-width: 64rem; margin: 0 auto; padding: 0 1.5rem 5rem; }
+.services h2 {
+  margin-bottom: 2.5rem; text-align: center; font-size: 1.875rem; color: var(--purple);
+}
+.cards { display: grid; gap: 1rem; }
+.card {
+  display: flex; min-height: 14rem; align-items: center; justify-content: center;
+  padding: 2rem 1.5rem; border: 1px solid var(--purple); border-radius: 8px;
+  background: #ffffff;
+}
+.card p { text-align: center; font-size: 1rem; line-height: 1.625; color: var(--purple); }
+.strong { font-weight: 600; }
+
+/* Footer */
+footer { padding: 1.5rem 1.5rem 6rem; text-align: center; }
+.num { font-variant-numeric: tabular-nums; }
+.privacy {
+  display: inline-flex; align-items: center; min-height: 2.75rem; margin-top: 1rem;
+  font-size: 0.875rem; font-weight: 500; letter-spacing: 0.025em; color: var(--purple);
+  text-decoration: underline; text-underline-offset: 4px;
+}
+
+/* Responsive Media Queries */
+@media (min-width: 640px) {
+  .poem p { font-size: 1.875rem; }
+  .badges { flex-direction: row; }
+  .fact { position: relative; padding: 2.5rem 0; }
+  .fact h2 { position: absolute; top: 50%; right: 0; margin-bottom: 0; transform: translateY(-50%); }
+  .fact-body { padding: 0 10rem; }
+}
+
+@media (min-width: 768px) {
+  .hero { height: 24rem; }
+  .hero-title { font-size: 3rem; }
+  .poem { padding: 6rem 1.5rem; }
+  .poem p { font-size: 3rem; }
+  .tagline-grid {
+    grid-template-columns: 1fr 1fr; align-items: center;
+    gap: 4rem; padding: 6rem 4rem;
+  }
+  .tagline-ar, .tagline-en { font-size: 2.25rem; }
+  .tagline-en { text-align: left; }
+  .soon { padding: 4rem 1.5rem; }
+  .soon h2 { font-size: 1.875rem; }
+  .fact h2 { font-size: 1.5rem; }
+  .about { padding: 6rem 1.5rem; }
+  .about p { font-size: 1.5rem; }
+  .services h2 { font-size: 2.25rem; }
+  .cards { grid-template-columns: repeat(3, 1fr); }
+  .card p { font-size: 1.125rem; }
+}
+  </style>
 </head>
 <body>
-<header class="hero">THABEER - ثبير</header>
-<div class="verse">وَنَحْنُ أُناسٌ لا نَزولُ عَنِ العُلا<br>كَما لا يَزولُ عَنْ مَكانِهِ ثَبِيرُ</div>
-<section class="banner">
-<div class="ar">تطبيق ثبير | دليلكم الذكي للتعلم والتدريب المستمر</div>
-<div class="en">THABEER | YOUR EDUCATIONAL &amp; TRAINING GUIDE</div>
-</section>
-<main class="wrap">
-<div class="row"><h2>عن التطبيق</h2><p>دليل إلكتروني وسوق مفتوح للربط بين الطلاب والمعلمين والمراكز التدريبية.</p></div>
-<div class="row"><h2>الموقع</h2><p>المملكة العربية السعودية</p></div>
-<div class="row"><h2>التواصل</h2><p><a href="mailto:info@thabeerapp.com">info@thabeerapp.com</a></p></div>
-<p class="about">تأسست منصة "ثبير" لتكون الوجهة الأولى للراغبين في تطوير مهاراتهم الأكاديمية والمهنية. نتيح للمتعلمين البحث واكتشاف أفضل الخيارات التعليمية المتاحة (حضوريًا أو عبر الإنترنت)، مع تمكين المعلمين والمراكز من عرض دوراتهم وبرامجهم التدريبية مباشرة وسهولة التواصل مع المستفيدين.</p>
-<section class="services">
-<h2>خدماتنا و أحكام الإستخدام</h2>
-<div class="cards">
-<div class="card">للمتعلمين: بحث سريع عن المعلمين والمراكز القريبة وتقييم مباشر.</div>
-<div class="card">للمعلمين والمدربين: استعراض الخدمات والتوثيق الرسمي.</div>
-<div class="card">للمراكز التدريبية: تسويق البرامج المعتمدة وإدارة الدورات بمرونة.</div>
-</div>
-</section>
-</main>
-<footer>
-جميع الحقوق محفوظة © مؤسسة محمد علي بوكر<br>
-<a href="https://www.freeprivacypolicy.com/live/b21b2a00-58c4-4f3b-bd3e-443331796162" target="_blank" rel="noopener">Privacy Policy</a>
-</footer>
+  <main>
+    <!-- Hero Banner -->
+    <section class="banner hero">
+      <div class="overlay-purple o50"></div>
+      <div class="banner-content">
+        <h1 class="hero-title">ثبير | Thabeer</h1>
+      </div>
+    </section>
+
+    <!-- Poem / Intro -->
+    <section class="poem">
+      <p>دليلكم الذكي للتعلم والتدريب المستمر للربط بين الطلاب والمعلمين والمراكز التدريبية</p>
+    </section>
+
+    <!-- Tagline Section -->
+    <section class="tagline-grid">
+      <div class="tagline-ar">منصة تجمع المهارة والتعلم في مكان واحد</div>
+      <div class="tagline-en">Connecting Learners & Trainers</div>
+    </section>
+
+    <!-- Coming Soon / App Badges -->
+    <section class="soon">
+      <h2>قريباً على المتاجر</h2>
+      <p class="muted">تطبيق ثبير سيكون متاحاً قريباً للأجهزة الذكية</p>
+      <div class="badges">
+        <div class="badge">
+          <div class="badge-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+          <div class="badge-text">
+            <span class="badge-soon">قريباً</span>
+            <span class="badge-name">App Store</span>
+          </div>
+        </div>
+        <div class="badge">
+          <div class="badge-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          </div>
+          <div class="badge-text">
+            <span class="badge-soon">قريباً</span>
+            <span class="badge-name">Google Play</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services / Features -->
+    <section class="services">
+      <h2>خدمات المنصة</h2>
+      <div class="cards">
+        <div class="card">
+          <p><span class="strong">للطلاب والمتعلمين</span><br>البحث والتواصل مع أفضل المدربين في مختلف المجالات</p>
+        </div>
+        <div class="card">
+          <p><span class="strong">للمدربين والمهاريين</span><br>تقديم الخدمات التدريبية والوصول إلى شريحة أوسع من المتعلمين</p>
+        </div>
+        <div class="card">
+          <p><span class="strong">للمراكز التدريبية</span><br>عرض البرامج والدورات التدريبية وإدارتها بمرونة وفعالية</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p class="muted small">جميع الحقوق محفوظة © <span class="num">2026</span> ثبير</p>
+  </footer>
 </body>
 </html>
