@@ -4,107 +4,190 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ثبير | Thabeer</title>
+  <!-- استدعاء خط عربي حديث (Tajawal) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  
   <style>
+    :root {
+      --primary-burnt: #9f420b;      /* نحاسي محروق */
+      --bg-foggy: #e1e7e6;           /* ضباب ساحلي */
+      --bg-light: #f7f9f9;           /* خلفية عامة فاتحة متناسقة */
+      --card-bg: #ffffff;            /* أبيض للبطاقات */
+      --text-main: #2b1d18;          /* لون داكن متناسق مع النحاسي للنصوص */
+      --text-muted: #6b5852;         /* نص فرعي هادئ */
+      --border-color: #ccd5d4;       /* إطارات متناسقة مع لون الضباب */
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       padding: 0;
-      font-family: system-ui, -apple-system, sans-serif;
-      background-color: #fcfbfe;
-      color: #1a0826;
+      font-family: 'Tajawal', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-main);
       text-align: center;
+      line-height: 1.6;
     }
+
     header {
-      background-color: #2e003e;
+      background-color: var(--primary-burnt);
       color: #ffffff;
-      padding: 50px 20px;
+      padding: 60px 20px;
+      box-shadow: 0 4px 15px rgba(159, 66, 11, 0.15);
     }
+
     h1 {
       margin: 0;
-      font-size: 36px;
+      font-size: 42px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
     }
+
     .poetic-quote {
-      background-color: #f3ebf5;
-      color: #2e003e;
-      padding: 25px 20px;
+      background-color: var(--bg-foggy);
+      color: var(--primary-burnt);
+      padding: 30px 20px;
       font-size: 22px;
-      font-weight: bold;
-      line-height: 1.8;
-      border-top: 2px solid #e2d7e5;
-      border-bottom: 2px solid #e2d7e5;
+      font-weight: 700;
+      line-height: 1.9;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
     }
+
     .intro {
-      padding: 40px 20px;
-      font-size: 20px;
-      font-weight: bold;
-      color: #2e003e;
-      max-width: 700px;
+      padding: 50px 20px 40px;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--primary-burnt);
+      max-width: 750px;
       margin: 0 auto;
     }
+
     .banner {
-      background-color: #2e003e;
+      background-color: var(--primary-burnt);
       color: #ffffff;
-      padding: 40px 20px;
-      font-size: 20px;
-      font-weight: bold;
+      padding: 45px 20px;
+      font-size: 22px;
+      font-weight: 700;
+      border-radius: 16px;
+      max-width: 900px;
+      margin: 20px auto 40px;
+      box-shadow: 0 10px 25px rgba(159, 66, 11, 0.2);
     }
+
+    .banner span {
+      font-size: 15px;
+      font-weight: 500;
+      margin-top: 12px;
+      display: block;
+      letter-spacing: 1.5px;
+      opacity: 0.9;
+    }
+
     .section {
       padding: 40px 20px;
+      max-width: 1100px;
+      margin: 0 auto;
     }
+
+    .section h2 {
+      color: var(--primary-burnt);
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
     .badges {
       display: flex;
       justify-content: center;
-      gap: 15px;
-      margin-top: 20px;
+      gap: 20px;
+      margin-top: 25px;
       flex-wrap: wrap;
     }
+
     .badge {
-      border: 1px solid #4a0e4e;
-      padding: 12px 25px;
-      border-radius: 8px;
-      background: #ffffff;
-      font-weight: bold;
-      min-width: 150px;
+      border: 2px solid var(--primary-burnt);
+      padding: 14px 28px;
+      border-radius: 12px;
+      background: var(--card-bg);
+      font-weight: 700;
+      color: var(--primary-burnt);
+      min-width: 180px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+      transition: all 0.3s ease;
     }
+
+    .badge:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(159, 66, 11, 0.15);
+      background-color: #faf5f3;
+    }
+
     .cards {
       display: flex;
       justify-content: center;
-      gap: 20px;
+      gap: 25px;
       flex-wrap: wrap;
-      margin-top: 20px;
-      max-width: 1000px;
-      margin-left: auto;
-      margin-right: auto;
+      margin-top: 30px;
     }
+
     .card {
-      border: 1px solid #e2d7e5;
-      background: #ffffff;
-      padding: 25px;
-      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      background: var(--card-bg);
+      padding: 30px 25px;
+      border-radius: 16px;
       flex: 1;
-      min-width: 250px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      min-width: 280px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+      transition: all 0.3s ease;
     }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(159, 66, 11, 0.08);
+      border-color: var(--primary-burnt);
+    }
+
     .card-title {
-      font-weight: bold;
-      color: #2e003e;
-      font-size: 18px;
-      margin-bottom: 10px;
+      font-weight: 700;
+      color: var(--primary-burnt);
+      font-size: 20px;
+      margin-bottom: 12px;
     }
+
+    .card-text {
+      color: var(--text-muted);
+      font-size: 16px;
+    }
+
     footer {
-      border-top: 1px solid #e2d7e5;
-      padding: 30px 20px;
-      background: #ffffff;
-      margin-top: 40px;
+      border-top: 1px solid var(--border-color);
+      padding: 40px 20px;
+      background: var(--card-bg);
+      margin-top: 60px;
     }
+
     .company {
-      font-weight: bold;
-      color: #2e003e;
+      font-weight: 700;
+      color: var(--primary-burnt);
       margin-bottom: 8px;
+      font-size: 16px;
     }
+
     .privacy {
-      color: #4a0e4e;
-      font-weight: bold;
-      text-decoration: underline;
+      color: var(--primary-burnt);
+      font-weight: 700;
+      text-decoration: none;
+      border-bottom: 1px solid var(--primary-burnt);
+      transition: opacity 0.2s;
+    }
+
+    .privacy:hover {
+      opacity: 0.8;
     }
   </style>
 </head>
@@ -125,12 +208,12 @@
 
   <div class="banner">
     منصة تجمع المهارة والتعلم في مكان واحد<br>
-    <span style="font-size: 16px; font-weight: normal; margin-top: 10px; display: block;">CONNECTING LEARNERS & TRAINERS</span>
+    <span>CONNECTING LEARNERS & TRAINERS</span>
   </div>
 
   <div class="section">
-    <h2 style="color: #2e003e;">قريباً على المتاجر</h2>
-    <p style="color: #5a4b62;">تطبيق ثبير سيكون متاحاً قريباً للأجهزة الذكية</p>
+    <h2>قريباً على المتاجر</h2>
+    <p style="color: var(--text-muted); margin-top: 5px;">تطبيق ثبير سيكون متاحاً قريباً للأجهزة الذكية</p>
     <div class="badges">
       <div class="badge">App Store - قريباً</div>
       <div class="badge">Google Play - قريباً</div>
@@ -138,26 +221,26 @@
   </div>
 
   <div class="section">
-    <h2 style="color: #2e003e;">خدمات المنصة</h2>
+    <h2>خدمات المنصة</h2>
     <div class="cards">
       <div class="card">
         <div class="card-title">للطلاب والمتعلمين</div>
-        <div>البحث والتواصل مع أفضل المدربين في مختلف المجالات</div>
+        <div class="card-text">البحث والتواصل مع أفضل المدربين في مختلف المجالات</div>
       </div>
       <div class="card">
         <div class="card-title">للمدربين والمهاريين</div>
-        <div>تقديم الخدمات التدريبية والوصول إلى شريحة أوسع من المتعلمين</div>
+        <div class="card-text">تقديم الخدمات التدريبية والوصول إلى شريحة أوسع من المتعلمين</div>
       </div>
       <div class="card">
         <div class="card-title">للمراكز التدريبية</div>
-        <div>عرض البرامج والدورات التدريبية وإدارتها بمرونة وفعالية</div>
+        <div class="card-text">عرض البرامج والدورات التدريبية وإدارتها بمرونة وفعالية</div>
       </div>
     </div>
   </div>
 
   <footer>
     <div class="company">Mohammed Ali Bawkar Establishment</div>
-    <p style="color: #5a4b62; font-size: 14px;">جميع الحقوق محفوظة © 2026 ثبير</p>
+    <p style="color: var(--text-muted); font-size: 14px; margin: 10px 0;">جميع الحقوق محفوظة © 2026 ثبير</p>
     <p><a href="https://www.freeprivacypolicy.com/live/b21b2a00-58c4-4f3b-bd3e-443331796162" target="_blank" class="privacy">سياسة الخصوصية والاستخدام</a></p>
   </footer>
 
