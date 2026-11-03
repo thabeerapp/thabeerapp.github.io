@@ -1,494 +1,230 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ثبير | Thabeer</title>
-  <meta name="description" content="ثبير: دليلك الذكي للتعلّم والتدريب. ابحث عن معلمين ومراكز تدريبية قريبة منك، واحجز بالوقت والسعر المناسب.">
-  <meta name="theme-color" content="#2a4491">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --primary: #2a4491;      /* أزرق كوبالت عميق */
-      --primary-dark: #1f3475;
-      --bg-foggy: #e7e2c5;           /* كريمي دافئ */
-      --bg-light: #f7f5e9;
-      --card-bg: #ffffff;
-      --text-main: #14203f;
-      --text-muted: #4a5272;
-      --border-color: #d6d1b4;
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
-    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
-
-    body {
-      margin: 0;
-      overflow-x: clip;
-      font-family: 'Tajawal', system-ui, -apple-system, sans-serif;
-      background-color: var(--bg-light);
-      color: var(--text-main);
-      text-align: center;
-      line-height: 1.7;
-    }
-
-    a { color: inherit; }
-    :focus-visible { outline: 3px solid var(--primary); outline-offset: 3px; border-radius: 6px; }
-
-    /* ---------- شريط التنقل ---------- */
-    .nav {
-      position: sticky; top: 0; z-index: 50;
-      background: rgba(247, 245, 233, 0.92);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--border-color);
-    }
-    .nav-inner {
-      max-width: 1100px; margin: 0 auto; padding: 12px 20px;
-      display: flex; align-items: center; justify-content: space-between; gap: 16px;
-    }
-    .brand { font-weight: 800; font-size: 22px; color: var(--primary); text-decoration: none; }
-    .nav-links { display: flex; gap: 22px; align-items: center; }
-    .nav-links a { text-decoration: none; font-weight: 500; color: var(--text-main); font-size: 16px; }
-    .nav-links a:hover { color: var(--primary); }
-    .btn {
-      display: inline-block; border: 0; cursor: pointer; font-family: inherit;
-      background: var(--primary); color: #fff; font-weight: 700; font-size: 16px;
-      padding: 12px 26px; border-radius: 12px; text-decoration: none;
-      transition: background .2s, transform .2s;
-    }
-    .btn:hover { background: var(--primary-dark); transform: translateY(-2px); }
-    .btn-light { background: #fff; color: var(--primary); }
-    .btn-light:hover { background: var(--bg-foggy); }
-    @media (max-width: 720px) { .nav-links .hide-sm { display: none; } .nav-links { gap: 14px; } }
-
-    /* ---------- الهيدر ---------- */
-    header {
-      background-color: var(--primary);
-      color: #ffffff;
-      padding: 60px 20px;
-      box-shadow: 0 4px 15px rgba(42, 68, 145, 0.15);
-    }
-    h1 { margin: 0; font-size: 42px; font-weight: 800; letter-spacing: -0.5px; }
-    header p { margin: 12px 0 0; font-size: 20px; font-weight: 500; opacity: .95; }
-
-    .poetic-quote {
-      background-color: var(--bg-foggy);
-      color: var(--primary);
-      padding: 30px 20px;
-      font-size: 22px; font-weight: 700; line-height: 1.9;
-      border-top: 1px solid var(--border-color);
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    .intro {
-      padding: 50px 20px 40px;
-      font-size: 22px; font-weight: 700;
-      color: var(--primary);
-      max-width: 750px; margin: 0 auto;
-    }
-
-    .banner {
-      background-color: var(--primary);
-      color: #ffffff;
-      padding: 45px 20px;
-      font-size: 22px; font-weight: 700;
-      border-radius: 16px;
-      max-width: 900px;
-      margin: 20px auto 40px;
-      box-shadow: 0 10px 25px rgba(42, 68, 145, 0.2);
-    }
-    .banner span { font-size: 15px; font-weight: 500; margin-top: 12px; display: block; letter-spacing: 1.5px; opacity: 0.9; }
-    @media (max-width: 960px) { .banner { margin-inline: 16px; } }
-
-    /* ---------- الأقسام ---------- */
-    .section { padding: 56px 20px; max-width: 1100px; margin: 0 auto; }
-    .section h2 { color: var(--primary); font-size: 30px; margin: 0 0 8px; }
-    .section .lead { color: var(--text-muted); margin: 0 auto; max-width: 640px; font-size: 17px; }
-    .band { background: var(--bg-foggy); border-block: 1px solid var(--border-color); }
-
-    .badges { display: flex; justify-content: center; gap: 20px; margin-top: 25px; flex-wrap: wrap; }
-    .badge {
-      border: 2px solid var(--primary); padding: 14px 28px; border-radius: 12px;
-      background: var(--card-bg); font-weight: 700; color: var(--primary);
-      min-width: 180px; box-shadow: 0 4px 10px rgba(0,0,0,0.03); transition: all .3s ease;
-    }
-    .badge:hover { transform: translateY(-3px); box-shadow: 0 6px 15px rgba(42, 68, 145, 0.15); background-color: #f1f4fb; }
-
-    .cards { display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; margin-top: 30px; }
-    .card {
-      border: 1px solid var(--border-color); background: var(--card-bg);
-      padding: 30px 25px; border-radius: 16px; flex: 1; min-width: 280px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.03); transition: all .3s ease;
-    }
-    .card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(42, 68, 145, 0.08); border-color: var(--primary); }
-    .card-title { font-weight: 700; color: var(--primary); font-size: 20px; margin-bottom: 12px; }
-    .card-text { color: var(--text-muted); font-size: 16px; }
-
-    /* خطوات العمل */
-    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; margin-top: 32px; }
-    .step { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 16px; padding: 30px 22px; }
-    .step-num {
-      width: 54px; height: 54px; margin: 0 auto 14px; border-radius: 50%;
-      background: var(--primary); color: #fff; font-weight: 800; font-size: 24px;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .step h3 { margin: 0 0 6px; font-size: 20px; color: var(--primary); }
-    .step p { margin: 0; color: var(--text-muted); font-size: 16px; }
-    .teacher-note { margin-top: 26px; font-weight: 500; color: var(--text-main); }
-    @media (max-width: 800px) { .steps { grid-template-columns: 1fr; } }
-
-    /* المزايا */
-    .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 32px; text-align: right; }
-    .feature { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 16px; padding: 26px 22px; transition: all .3s ease; }
-    .feature:hover { border-color: var(--primary); box-shadow: 0 8px 20px rgba(42, 68, 145, 0.08); transform: translateY(-4px); }
-    .ic {
-      width: 48px; height: 48px; border-radius: 12px; background: var(--bg-foggy); color: var(--primary);
-      display: flex; align-items: center; justify-content: center; margin-bottom: 14px;
-    }
-    .ic svg { width: 26px; height: 26px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-    .feature h3 { margin: 0 0 6px; font-size: 18px; color: var(--primary); }
-    .feature p { margin: 0; font-size: 15.5px; color: var(--text-muted); }
-    @media (max-width: 900px) { .features { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 600px) { .features { grid-template-columns: 1fr; } }
-
-    /* الثقة والأمان */
-    .trust { max-width: 820px; margin: 28px auto 0; text-align: right; display: grid; gap: 14px; }
-    .trust-item { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 14px; padding: 18px 22px; display: flex; gap: 14px; align-items: flex-start; }
-    .trust-item .ic { margin: 0; flex-shrink: 0; width: 42px; height: 42px; }
-    .trust-item strong { display: block; color: var(--primary); font-size: 17px; }
-    .trust-item span { color: var(--text-muted); font-size: 15.5px; }
-
-    /* نموذج الانضمام */
-    .join { background: var(--primary); color: #fff; }
-    .join .section h2, .join h2 { color: #fff; }
-    .join .lead { color: rgba(255,255,255,.9); }
-    form { max-width: 620px; margin: 28px auto 0; display: grid; gap: 14px; text-align: right; }
-    .field label { display: block; font-weight: 700; margin-bottom: 6px; font-size: 15px; }
-    .field input, .field select {
-      width: 100%; font-family: inherit; font-size: 16px; padding: 13px 14px;
-      border-radius: 10px; border: 2px solid transparent; background: #fff; color: var(--text-main);
-    }
-    .field input:focus, .field select:focus { outline: none; border-color: var(--bg-foggy); box-shadow: 0 0 0 3px rgba(255,255,255,.4); }
-    .form-note { font-size: 14px; opacity: .92; margin: 0; text-align: center; }
-    .form-note a { font-weight: 700; }
-    .form-status { min-height: 26px; margin: 0; font-weight: 700; text-align: center; }
-    .hp { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; opacity: 0; pointer-events: none; }
-
-    /* الأسئلة الشائعة */
-    .faq { max-width: 820px; margin: 28px auto 0; text-align: right; display: grid; gap: 12px; }
-    details { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 14px; padding: 0 22px; transition: border-color .2s; }
-    details[open] { border-color: var(--primary); }
-    summary { cursor: pointer; list-style: none; padding: 18px 0; font-weight: 700; font-size: 17px; color: var(--primary); display: flex; justify-content: space-between; align-items: center; gap: 12px; }
-    summary::-webkit-details-marker { display: none; }
-    summary::after { content: "+"; font-size: 26px; line-height: 1; transition: transform .2s; }
-    details[open] summary::after { content: "−"; }
-    details p { margin: 0 0 18px; color: var(--text-muted); font-size: 16px; }
-
-    /* تواصل */
-    .contact-links { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-top: 24px; }
-    .contact-links a[hidden] { display: none; }
-    .chip { border: 2px solid var(--primary); color: var(--primary); background: #fff; font-weight: 700; padding: 12px 24px; border-radius: 12px; text-decoration: none; transition: all .2s; }
-    .chip:hover { background: var(--primary); color: #fff; }
-
-    footer { border-top: 1px solid var(--border-color); padding: 40px 20px; background: var(--card-bg); margin-top: 20px; }
-    .company { font-weight: 700; color: var(--primary); margin-bottom: 8px; font-size: 16px; }
-    .privacy { color: var(--primary); font-weight: 700; text-decoration: none; border-bottom: 1px solid var(--primary); transition: opacity .2s; }
-    .privacy:hover { opacity: 0.8; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ثبير | سوق التعليم والتدريب في السعودية</title>
+<meta name="description" content="ثبير سوق التعليم والتدريب في السعودية، يربط الطلاب والمتدربين بالمعلمين والمدربين والمراكز التدريبية المناسبة.">
+<meta name="theme-color" content="#12358A">
+<link rel="canonical" href="https://thabeerapp.com/">
+<meta property="og:type" content="website"><meta property="og:locale" content="ar_SA">
+<meta property="og:title" content="ثبير | المعرفة أقرب.. تصنع مستقبلك">
+<meta property="og:description" content="منصة تربط الطلاب والمتدربين بالمعلمين والمدربين والمراكز التدريبية المناسبة.">
+<meta property="og:url" content="https://thabeerapp.com/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"EducationalOrganization","name":"ثبير","alternateName":"Thabeer","url":"https://thabeerapp.com/"}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap">
+<style>
+:root{--royal:#12358A;--azure:#1E4FA3;--navy:#12285A;--night:#070F24;--plat:#E6E8EC;--gold:#E0A82E;--ok:#1B7149;--bad:#B83232;--muted:#4D5A73;--line:#CBD2DE;--r:18px;--rb:14px;
+--head:'Tajawal','IBM Plex Sans Arabic',system-ui,sans-serif;--body:'IBM Plex Sans Arabic','Tajawal',system-ui,sans-serif}
+*{box-sizing:border-box}
+html{height:auto;scroll-behavior:smooth;scroll-padding-top:80px}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--plat);color:var(--night);font:400 16px/1.8 var(--body);overflow-x:clip}
+h1,h2,h3{font-family:var(--head);margin:0;line-height:1.35}
+a{color:inherit}:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:8px}
+.wrap{max-width:1120px;margin:auto;padding:0 24px}
+.btn{display:inline-block;border:0;cursor:pointer;font:700 16px/1 var(--body);padding:16px 24px;border-radius:var(--rb);background:var(--azure);color:#fff;text-decoration:none;transition:background .2s}
+.btn:hover{background:var(--royal)}
+.btn.gold{background:var(--gold);color:var(--night)}.btn.gold:hover{background:#f0bb45}
+.btn.ghost{background:transparent;box-shadow:inset 0 0 0 2px var(--azure);color:var(--azure)}.btn.ghost:hover{background:var(--plat)}
+.btn.onblue{background:transparent;box-shadow:inset 0 0 0 2px rgba(255,255,255,.5);color:#fff}.btn.onblue:hover{background:rgba(255,255,255,.1)}
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--royal);color:#fff}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;font:800 22px var(--head)}
+.brand img{width:40px;height:40px;border-radius:10px}
+.nav nav{display:flex;gap:24px;align-items:center}.nav nav a{text-decoration:none;font-weight:500;font-size:15px;opacity:.9}.nav nav a:hover{opacity:1}
+.nav .btn{padding:12px 16px;font-size:14px}
+/* hero */
+.hero{background:var(--royal);color:#fff;border-bottom:6px solid var(--gold);padding:64px 0 72px}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(36px,5.6vw,64px);font-weight:800;line-height:1.25}
+.hero p{font-size:19px;max-width:30em;margin:24px 0 32px;color:#dbe3f5}
+.acts{display:flex;gap:16px;flex-wrap:wrap}
+.stage{position:relative;display:flex;justify-content:center;align-items:center;min-height:380px}
+.stage .icon{width:min(320px,100%);border-radius:56px;box-shadow:0 0 0 1px rgba(255,255,255,.14),0 32px 64px rgba(7,15,36,.45)}
+.sample{position:absolute;bottom:-8px;inset-inline-start:-16px;width:236px;background:#fff;color:var(--night);border-radius:var(--r);padding:16px;box-shadow:0 24px 48px rgba(7,15,36,.4);text-align:start}
+.sample b{font:700 16px var(--head);display:block;margin-bottom:8px}
+.chips{display:flex;gap:8px;margin-bottom:16px}
+.chip{font:500 12px/1 var(--body);padding:8px 12px;border-radius:99px;display:inline-flex;align-items:center;gap:8px}
+.chip:before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor}
+.chip.ok{background:#dcefe5;color:var(--ok)}.chip.rev{background:#fbefd0;color:#8a6410}
+.sample .btn{display:block;text-align:center;padding:12px;font-size:14px}
+/* verse */
+.verse{background:var(--navy);color:#fff;text-align:center;padding:32px 24px;font:500 20px/2 var(--head)}
+.verse span{display:block;color:var(--gold)}
+/* sections */
+section{padding:80px 0}
+.head{max-width:640px;margin:0 auto 40px;text-align:center}
+.head h2{font-size:clamp(28px,4vw,40px);font-weight:800;color:var(--navy)}
+.head p{color:var(--muted);margin:8px 0 0}
+.intro{padding:72px 0 8px;text-align:center}
+.intro h2{font-size:clamp(24px,3.4vw,34px);font-weight:800;color:var(--navy);max-width:20em;margin:auto}
+.intro p{color:var(--muted);margin:16px 0 0}
+.paths{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.card{background:#fff;border-radius:var(--r);padding:32px;border:1px solid var(--line)}
+.card h3{font-size:22px;color:var(--navy);margin:16px 0 8px}.card p{margin:0 0 24px;color:var(--muted)}
+.card .ic{width:48px;height:48px;border-radius:var(--rb);background:var(--royal);display:grid;place-items:center}
+.ic svg{width:24px;height:24px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.paths .card{display:flex;flex-direction:column}.paths .card .btn{margin-top:auto;text-align:center}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:3px solid var(--royal)}
+.step{padding:32px 24px 0 0}.step+.step{border-inline-start:1px solid var(--line);padding-inline-start:32px}
+.step i{font:800 14px var(--head);font-style:normal;background:var(--gold);color:var(--night);width:32px;height:32px;border-radius:50%;display:grid;place-items:center;margin-top:-51px;margin-bottom:24px;border:4px solid var(--plat);box-sizing:content-box}
+.step h3{font-size:24px;color:var(--navy)}.step p{color:var(--muted);margin:8px 0 0}
+.note{text-align:center;margin-top:40px;font:700 18px var(--head);color:var(--azure)}
+.feat{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.feat .card{display:grid;grid-template-columns:48px 1fr;gap:24px;padding:24px}
+.feat .card h3{margin:0 0 8px;font-size:20px}.feat .card p{margin:0}
+.band{background:#fff}
+.trust{display:grid;gap:0;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--plat)}
+.trust div{padding:24px 32px;display:grid;grid-template-columns:1fr 2fr;gap:24px;align-items:baseline}
+.trust div+div{border-top:1px solid var(--line)}
+.trust b{font:700 19px var(--head);color:var(--navy)}.trust span{color:var(--muted)}
+.mount{background:var(--night);color:#fff;text-align:center}
+.mount svg{width:100%;max-width:560px;margin:0 auto 32px;display:block}
+.mount h2{font-size:clamp(30px,4.4vw,48px);font-weight:800}
+.mount p{max-width:34em;margin:16px auto 0;color:#c4cde0;font-size:18px}
+.join{background:var(--royal);color:#fff;border-top:6px solid var(--gold)}
+.join .wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.join .wrap>div:first-child{text-align:center}
+.join h2{font-size:clamp(30px,4vw,44px);font-weight:800}.join p.l{color:#dbe3f5;font-size:18px;margin:16px 0 0}
+form{background:var(--navy);padding:32px;border-radius:var(--r);display:grid;gap:16px}
+label{display:block;font-weight:500;font-size:14px;margin-bottom:8px;color:#dbe3f5}
+input,select{width:100%;font:400 16px var(--body);padding:14px 16px;border-radius:var(--rb);border:2px solid transparent;background:#fff;color:var(--night)}
+input:focus,select:focus{outline:none;border-color:var(--gold)}
+.hp{position:absolute;inset-inline-start:-9999px}
+form .btn{width:100%}
+#formStatus{min-height:24px;margin:0;font-size:14px;text-align:center}
+.fnote{margin:0;font-size:13px;color:#a9b6d4;text-align:center}.fnote a{color:#fff}
+.faq{max-width:760px;margin:0 auto}
+details{background:#fff;border:1px solid var(--line);border-radius:var(--rb);margin-bottom:16px}
+summary{cursor:pointer;padding:16px 24px;font:700 18px var(--head);color:var(--navy);list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}summary:after{content:"+";color:var(--azure);font-size:24px;line-height:1}
+details[open] summary:after{content:"–"}
+details p{margin:0;padding:0 24px 24px;color:var(--muted)}
+.contact-links{display:flex;gap:16px;flex-wrap:wrap;justify-content:center}
+.contact-links a{background:#fff;border:1px solid var(--line);padding:12px 24px;border-radius:99px;text-decoration:none;font-weight:700;color:var(--azure)}
+.contact-links a[hidden]{display:none}
+footer{background:var(--night);color:#a9b6d4;text-align:center;padding:40px 24px;font-size:14px}
+footer b{color:#fff;font:700 16px var(--head);display:block}footer a{color:#fff}
+@media(max-width:860px){
+.nav nav a:not(.btn){display:none}
+.hero .wrap,.join .wrap{grid-template-columns:1fr;gap:40px}
+.hero .wrap>div:first-child{text-align:center}.hero p{margin-inline:auto}.acts{justify-content:center}
+.stage{min-height:0;padding-bottom:64px}.sample{inset-inline-start:0}
+.paths,.feat{grid-template-columns:1fr}
+.steps{grid-template-columns:1fr;border-top:0;border-inline-start:3px solid var(--royal)}
+.step,.step+.step{padding:0 32px 32px;border-inline-start:0}.step i{margin:0 0 16px -52px}
+[dir=rtl] .step i{margin:0 -52px 16px 0}
+.trust div{grid-template-columns:1fr;gap:8px}
+section{padding:56px 0}}
+</style>
 </head>
 <body>
+<header class="nav"><div class="wrap"><a class="brand" href="#top"><img src="data:image/webp;base64,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" alt="">ثبير</a>
+<nav aria-label="التنقل الرئيسي"><a href="#paths">المسارات</a><a href="#how">كيف يعمل</a><a href="#features">المزايا</a><a href="#faq">الأسئلة</a><a class="btn gold" href="#join">سجّل اهتمامك</a></nav></div></header>
 
-  <!-- شريط التنقل -->
-  <nav class="nav" aria-label="التنقل الرئيسي">
-    <div class="nav-inner">
-      <a class="brand" href="#top">ثبير</a>
-      <div class="nav-links">
-        <a class="hide-sm" href="#how">كيف يعمل</a>
-        <a class="hide-sm" href="#features">المزايا</a>
-        <a class="hide-sm" href="#faq">الأسئلة الشائعة</a>
-        <a class="btn" href="#join">انضم الآن</a>
-      </div>
-    </div>
-  </nav>
+<main id="top">
+<div class="hero"><div class="wrap">
+<div><h1>المعرفة أقرب.. تصنع مستقبلك</h1>
+<p>ثبير سوق التعليم والتدريب في السعودية. يربطك بالمعلم أو المدرب أو المركز المناسب: ابحث بسهولة، اختر بوضوح، وابدأ بثقة.</p>
+<div class="acts"><a class="btn gold" href="#join">أبلغوني عند الإطلاق</a><a class="btn onblue" href="#how">كيف يعمل ثبير</a></div></div>
+<div class="stage"><img class="icon" src="data:image/webp;base64,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" alt="شعار ثبير">
+<div class="sample" aria-hidden="true"><b>دورة اللغة الإنجليزية</b><div class="chips"><span class="chip ok">موثّق</span><span class="chip rev">قيد المراجعة</span></div><div class="btn">احجز الآن</div></div></div>
+</div></div>
 
-  <header id="top">
-    <h1>ثبير | Thabeer</h1>
-    <p>دليلك للتعلّم والتدريب</p>
-  </header>
+<div class="verse">وَنَحْنُ أُناسٌ لا نَزولُ عَنِ العُلا<span>كَما لا يَزولُ عَنْ مَكانِهِ ثَبِيرُ</span></div>
 
-  <div class="poetic-quote">
-    وَنَحْنُ أُناسٌ لا نَزولُ عَنِ العُلا<br>
-    كَما لا يَزولُ عَنْ مَكانِهِ ثَبِيرُ
-  </div>
+<div class="intro wrap"><h2>دليلكم الذكي للتعلم والتدريب المستمر</h2><p>نربط الطلاب والمعلمين والمراكز التدريبية في منصة واحدة تجمع المهارة والتعلم.</p></div>
 
-  <div class="intro">
-    دليلكم الذكي للتعلم والتدريب المستمر للربط بين الطلاب والمعلمين والمراكز التدريبية
-  </div>
+<section id="paths"><div class="wrap"><div class="head"><h2>اختر مسارك في ثبير</h2><p>منصة واحدة تجمع المتعلم بمن يملك المعرفة والخبرة.</p></div>
+<div class="paths">
+<article class="card"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div><h3>للطالب والمتدرب</h3><p>ابحث عن معلم أو دورة تناسب وقتك وميزانيتك ومكانك.</p><a class="btn" href="#join">ابدأ التعلم</a></article>
+<article class="card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M8 7h9v9"/></svg></div><h3>للمعلم والمدرب</h3><p>اعرض مهارتك ووصل إلى طلاب يبحثون عن خبرتك.</p><a class="btn" href="#join">شارك خبرتك</a></article>
+<article class="card"><div class="ic"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 9h6M9 13h6"/></svg></div><h3>للمركز والمعهد</h3><p>اعرض دوراتك وبرامجك التدريبية لجمهور أوسع.</p><a class="btn" href="#join">أضف دورتك</a></article>
+</div></div></section>
 
-  <div class="banner">
-    منصة تجمع المهارة والتعلم في مكان واحد<br>
-    <span>CONNECTING LEARNERS &amp; TRAINERS</span>
-  </div>
+<section id="how" class="band"><div class="wrap"><div class="head"><h2>ثلاث خطوات تفصلك عن مهارتك القادمة</h2><p>كل مسار يبدأ بخطوة.. وثبير يساعدك على اختيارها.</p></div>
+<div class="steps">
+<div class="step"><i>1</i><h3>اكتشف</h3><p>ابحث حسب المادة، المدينة، طريقة الحصة، السعر والتقييم.</p></div>
+<div class="step"><i>2</i><h3>اختر</h3><p>قارن الملفات والدورات وتواصل مباشرة قبل اتخاذ قرارك.</p></div>
+<div class="step"><i>3</i><h3>ابدأ</h3><p>اتفق على التفاصيل، ابدأ التعلم، ثم قيّم تجربتك.</p></div></div>
+<p class="note">خبرتك قد تكون بداية نجاح شخص آخر.</p></div></section>
 
-  <!-- قريباً على المتاجر -->
-  <div class="section">
-    <h2>قريباً على المتاجر</h2>
-    <p style="color: var(--text-muted); margin-top: 5px;">تطبيق ثبير سيكون متاحاً قريباً للأجهزة الذكية</p>
-    <div class="badges">
-      <div class="badge">App Store - قريباً</div>
-      <div class="badge">Google Play - قريباً</div>
-    </div>
-  </div>
+<section id="features"><div class="wrap"><div class="head"><h2>مزايا تسهّل عليك التعلّم</h2><p>كل ما تحتاجه للوصول إلى المعلم أو المركز المناسب بثقة.</p></div>
+<div class="feat">
+<div class="card"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div><div><h3>بحث بفلاتر دقيقة</h3><p>حدّد المدينة وطريقة الحصة واكتب ما تريد تعلّمه اليوم.</p></div></div>
+<div class="card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><div><h3>محادثة داخل التطبيق</h3><p>تواصل مباشرة مع المعلم أو المركز، مع إمكانية الانتقال إلى واتساب.</p></div></div>
+<div class="card"><div class="ic"><svg viewBox="0 0 24 24"><polygon points="12 2 15.1 8.6 22 9.3 17 14.1 18.2 21 12 17.8 5.8 21 7 14.1 2 9.3 8.9 8.6 12 2"/></svg></div><div><h3>تقييم بعد الخدمة</h3><p>شارك تجربتك وساعد غيرك على الاختيار.</p></div></div>
+<div class="card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div><div><h3>توثيق الحسابات</h3><p>شارات توثيق تساعد على بناء الثقة والوضوح.</p></div></div>
+</div></div></section>
 
-  <!-- كيف يعمل -->
-  <div class="band" id="how">
-    <div class="section">
-      <h2>كيف يعمل ثبير؟</h2>
-      <p class="lead">ثلاث خطوات بسيطة بينك وبين مهارتك الجديدة.</p>
-      <div class="steps">
-        <div class="step">
-          <div class="step-num">1</div>
-          <h3>ابحث</h3>
-          <p>اكتب ما تريد تعلّمه، وحدّد المدينة وطريقة الحصة (حضوري أو أونلاين).</p>
-        </div>
-        <div class="step">
-          <div class="step-num">2</div>
-          <h3>تواصل</h3>
-          <p>راسل المعلم أو المركز داخل التطبيق، أو انتقل مباشرة إلى واتساب.</p>
-        </div>
-        <div class="step">
-          <div class="step-num">3</div>
-          <h3>تعلّم</h3>
-          <p>اتفق على الوقت والسعر الذي يناسبك، وابدأ التعلّم، ثم قيّم تجربتك.</p>
-        </div>
-      </div>
-      <p class="teacher-note">أنت معلم أو مركز تدريب؟ أنشئ حسابك، وأضف موادك ودوراتك وأسعارك بحرية تامة.</p>
-    </div>
-  </div>
+<section id="trust" class="band"><div class="wrap"><div class="head"><h2>اختيار أوضح.. وثقة أكبر</h2><p>الثقة تبدأ من المعلومات الواضحة والتواصل المسؤول.</p></div>
+<div class="trust">
+<div><b>ملفات وتقييمات واضحة</b><span>اطّلع على التخصص، السعر، طريقة الحصة وتجارب الآخرين.</span></div>
+<div><b>توثيق للحسابات المستوفية</b><span>تساعد شارة التوثيق على تمييز الحسابات التي استوفت متطلبات المنصة.</span></div>
+<div><b>أدوات للإبلاغ</b><span>يمكنك الإبلاغ عن المحتوى أو السلوك المخالف عبر القنوات المخصصة.</span></div></div></div></section>
 
-  <!-- خدمات المنصة -->
-  <div class="section">
-    <h2>خدمات المنصة</h2>
-    <div class="cards">
-      <div class="card">
-        <div class="card-title">للطلاب والمتعلمين</div>
-        <div class="card-text">البحث والتواصل مع أفضل المدربين في مختلف المجالات</div>
-      </div>
-      <div class="card">
-        <div class="card-title">للمدربين والمهاريين</div>
-        <div class="card-text">تقديم الخدمات التدريبية والوصول إلى شريحة أوسع من المتعلمين</div>
-      </div>
-      <div class="card">
-        <div class="card-title">للمراكز التدريبية</div>
-        <div class="card-text">عرض البرامج والدورات التدريبية وإدارتها بمرونة وفعالية</div>
-      </div>
-    </div>
-  </div>
+<section class="mount"><div class="wrap">
+<svg viewBox="0 0 560 150" aria-hidden="true"><path d="M0 150L150 60l70 45 110-95 120 100 60-40 50 80z" fill="#12285A"/><path d="M0 150L110 92l60 38 160-120 40 36" fill="none" stroke="#E0A82E" stroke-width="3" stroke-linejoin="round"/></svg>
+<h2>من الكتاب إلى الجبل</h2><p>الكتاب في شعار ثبير يرمز إلى المعرفة، والجبل يرمز إلى الثبات والارتقاء. معرفة تبدأ بخطوة، ومسار يقود إلى مستقبل أوسع.</p></div></section>
 
-  <!-- المزايا -->
-  <div class="band" id="features">
-    <div class="section">
-      <h2>مزايا تسهّل عليك التعلّم</h2>
-      <p class="lead">كل ما تحتاجه للوصول إلى المعلم أو المركز المناسب بثقة.</p>
-      <div class="features">
-        <div class="feature">
-          <div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
-          <h3>بحث بفلاتر دقيقة</h3>
-          <p>حدّد المدينة وطريقة الحصة والجنس، واكتب ما تريد تعلّمه اليوم.</p>
-        </div>
-        <div class="feature">
-          <div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
-          <h3>محادثة داخل التطبيق</h3>
-          <p>تواصل مباشرة مع المعلم أو المركز، مع زر للانتقال إلى واتساب.</p>
-        </div>
-        <div class="feature">
-          <div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.1 8.6 22 9.3 17 14.1 18.2 21 12 17.8 5.8 21 7 14.1 2 9.3 8.9 8.6 12 2"/></svg></div>
-          <h3>تقييم بعد الخدمة</h3>
-          <p>قيّم تجربتك بعد الدرس أو الدورة، لتساعد غيرك على الاختيار.</p>
-        </div>
-        <div class="feature">
-          <div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
-          <h3>توثيق الحسابات</h3>
-          <p>التحقق برسائل OTP لضمان أن الحسابات حقيقية.</p>
-        </div>
-        <div class="feature">
-          <div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg></div>
-          <h3>علامة توثيق للمعلمين</h3>
-          <p>المعلمون الموثّقون يحصلون على علامة تميّزهم وأولوية في نتائج البحث.</p>
-        </div>
-        <div class="feature">
-          <div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 22V4"/><path d="M4 4h13l-2 4 2 4H4"/></svg></div>
-          <h3>إبلاغ وحماية</h3>
-          <p>زر إبلاغ داخل المحادثات، وإدارة تراجع البلاغات وتتخذ الإجراء المناسب.</p>
-        </div>
-      </div>
-    </div>
-  </div>
+<section class="join" id="join"><div class="wrap">
+<div><h2>كن من أوائل المنضمين</h2><p class="l">سجّل بياناتك لنخبرك فور إطلاق التطبيق على App Store وGoogle Play، سواء كنت طالباً أو معلماً أو مركزاً.</p></div>
+<form id="joinForm" novalidate>
+<div><label for="name">الاسم</label><input id="name" name="name" type="text" autocomplete="name" required></div>
+<div><label for="contact">رقم الجوال أو البريد الإلكتروني</label><input id="contact" name="contact" type="text" inputmode="email" autocomplete="email" required></div>
+<div><label for="role">أنا</label><select id="role" name="role"><option>طالب / متدرب</option><option>معلم / مدرب</option><option>مركز / معهد</option></select></div>
+<div class="hp" aria-hidden="true"><label>اتركه فارغاً <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+<button class="btn gold" type="submit" id="submitBtn">أبلغوني عند الإطلاق</button>
+<p id="formStatus" role="status" aria-live="polite"></p>
+<p class="fnote">بالتسجيل فأنت توافق على <a href="https://www.freeprivacypolicy.com/live/b21b2a00-58c4-4f3b-bd3e-443331796162" target="_blank" rel="noopener">سياسة الخصوصية والاستخدام</a>.</p>
+</form></div></section>
 
-  <!-- الأمان والثقة -->
-  <div class="section" id="trust">
-    <h2>بيئة موثوقة وواضحة</h2>
-    <p class="lead">نسعى إلى بيئة آمنة تجمع أفضل الكفاءات والخبرات.</p>
-    <div class="trust">
-      <div class="trust-item">
-        <div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 2"/></svg></div>
-        <div><strong>أنت من يتّفق على التفاصيل</strong><span>الوقت والسعر وطريقة الدفع باتفاق مباشر بينك وبين المعلم أو المركز، ويُنصح بالتحقق من مناسبة المعلم قبل أي دفع.</span></div>
-      </div>
-      <div class="trust-item">
-        <div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 22V4"/><path d="M4 4h13l-2 4 2 4H4"/></svg></div>
-        <div><strong>بلاغات تُراجع</strong><span>تراجع إدارة المنصة البلاغات وتتخذ الإجراء المناسب: تنبيه، أو حظر مؤقت، أو حظر دائم.</span></div>
-      </div>
-      <div class="trust-item">
-        <div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-        <div><strong>خصوصيتك محفوظة</strong><span>اطّلع على كيفية جمع بياناتنا واستخدامها في <a class="privacy" href="https://www.freeprivacypolicy.com/live/b21b2a00-58c4-4f3b-bd3e-443331796162" target="_blank" rel="noopener">سياسة الخصوصية والاستخدام</a>.</span></div>
-      </div>
-    </div>
-  </div>
+<section id="faq"><div class="wrap"><div class="head"><h2>الأسئلة الشائعة</h2></div><div class="faq">
+<details><summary>هل يأخذ ثبير رسوماً من الطالب؟</summary><p>لا. التطبيق لا يحصّل رسوماً خاصة بالدروس أو الدورات من الطلاب. يتم الاتفاق المالي مباشرة بين الأطراف.</p></details>
+<details><summary>كيف أتواصل مع المعلم أو المركز؟</summary><p>من خلال المحادثة الداخلية في التطبيق، مع إمكانية الانتقال إلى واتساب.</p></details>
+<details><summary>كيف أعرف أن الحساب موثّق؟</summary><p>تظهر شارة التوثيق للحسابات المستوفية للشروط، ويمكنك الاطلاع على التقييمات والبيانات قبل التواصل.</p></details>
+<details><summary>ماذا أفعل إذا واجهت مشكلة؟</summary><p>استخدم زر الإبلاغ داخل المحادثة، وستراجع إدارة المنصة البلاغ وتتخذ الإجراء المناسب.</p></details>
+<details><summary>متى يُطلق التطبيق؟</summary><p>قريباً على App Store وGoogle Play. سجّل بياناتك لتكون أول من يعلم.</p></details>
+</div></div></section>
 
-  <!-- الانضمام: قائمة الانتظار -->
-  <div class="join" id="join">
-    <div class="section">
-      <h2>كن من أوائل المنضمين</h2>
-      <p class="lead">سجّل بياناتك لنخبرك فور إطلاق التطبيق، سواء كنت طالباً أو معلماً أو مركزاً.</p>
+<section class="band" id="contact"><div class="wrap"><div class="head"><h2>تواصل معنا</h2><p>لأي استفسار أو اقتراح، يسعدنا سماعك.</p></div>
+<div class="contact-links"><a id="lnkWhatsapp" href="#" target="_blank" rel="noopener" hidden>واتساب</a><a id="lnkEmail" href="#" hidden dir="ltr">Info@thabeerapp.com</a><a id="lnkX" href="#" target="_blank" rel="noopener" hidden>X</a><a id="lnkInstagram" href="#" target="_blank" rel="noopener" hidden>إنستغرام</a></div></div></section>
+</main>
 
-      <form id="joinForm" novalidate>
-        <div class="field">
-          <label for="name">الاسم</label>
-          <input id="name" name="name" type="text" autocomplete="name" required>
-        </div>
-        <div class="field">
-          <label for="contact">رقم الجوال أو البريد الإلكتروني</label>
-          <input id="contact" name="contact" type="text" inputmode="email" autocomplete="email" required>
-        </div>
-        <div class="field">
-          <label for="role">أنا</label>
-          <select id="role" name="role" required>
-            <option value="طالب / متدرب">طالب / متدرب</option>
-            <option value="معلم / مدرب">معلم / مدرب</option>
-            <option value="مركز / معهد">مركز / معهد</option>
-          </select>
-        </div>
-        <!-- حقل مخفي لتقليل الرسائل الآلية -->
-        <div class="hp" aria-hidden="true"><label>اتركه فارغاً <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
-        <button class="btn btn-light" type="submit" id="submitBtn">سجّلني</button>
-        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
-        <p class="form-note">بالتسجيل فأنت توافق على <a href="https://www.freeprivacypolicy.com/live/b21b2a00-58c4-4f3b-bd3e-443331796162" target="_blank" rel="noopener">سياسة الخصوصية والاستخدام</a>.</p>
-      </form>
-    </div>
-  </div>
+<footer><b>Mohammed Ali Bawkar Establishment</b><p>جميع الحقوق محفوظة © 2026 ثبير · <a href="https://www.freeprivacypolicy.com/live/b21b2a00-58c4-4f3b-bd3e-443331796162" target="_blank" rel="noopener">سياسة الخصوصية والاستخدام</a></p></footer>
 
-  <!-- الأسئلة الشائعة -->
-  <div class="section" id="faq">
-    <h2>الأسئلة الشائعة</h2>
-    <div class="faq">
-      <details>
-        <summary>هل يأخذ ثبير رسوماً من الطالب؟</summary>
-        <p>لا. التطبيق لا يحصّل أي رسوم أو مبالغ خاصة بالدروس أو الدورات من الطلاب. التعامل المالي وتحديد الأتعاب يتمّان مباشرة بين الطالب والمعلم أو المركز.</p>
-      </details>
-      <details>
-        <summary>كيف أتواصل مع المعلم أو المركز؟</summary>
-        <p>من خلال المحادثة الداخلية في التطبيق، ويمكنك الانتقال منها إلى واتساب بضغطة زر.</p>
-      </details>
-      <details>
-        <summary>كيف أعرف أن المعلم موثوق؟</summary>
-        <p>الحسابات تُوثَّق برسائل OTP، ويحصل المعلمون الموثّقون على علامة توثيق. يمكنك أيضاً الاطلاع على تقييمات من تعلّموا لديه قبل أن تقرر.</p>
-      </details>
-      <details>
-        <summary>ماذا أفعل إذا واجهت مشكلة أو سلوكاً غير لائق؟</summary>
-        <p>استخدم زر الإبلاغ داخل المحادثة، وستراجع إدارة المنصة البلاغ وتتخذ الإجراء المناسب.</p>
-      </details>
-      <details>
-        <summary>أنا معلم أو مركز، كيف أنضم؟</summary>
-        <p>سجّل في قائمة الانتظار أعلاه واختر «معلم / مدرب» أو «مركز / معهد»، وسنتواصل معك عند الإطلاق. تفاصيل الشروط والعمولات تظهر لك عند إنشاء الحساب في التطبيق.</p>
-      </details>
-      <details>
-        <summary>متى يُطلق التطبيق؟</summary>
-        <p>قريباً على App Store وGoogle Play. سجّل بياناتك لتكون أول من يعلم.</p>
-      </details>
-    </div>
-  </div>
-
-  <!-- تواصل معنا (تظهر الروابط التي تعبّئها في الإعدادات أسفل الصفحة) -->
-  <div class="band" id="contact">
-    <div class="section">
-      <h2>تواصل معنا</h2>
-      <p class="lead">لأي استفسار أو اقتراح، يسعدنا سماعك.</p>
-      <div class="contact-links">
-        <a class="chip" id="lnkWhatsapp" href="#" target="_blank" rel="noopener" hidden>واتساب</a>
-        <a class="chip" id="lnkEmail" href="#" hidden dir="ltr">Info@thabeerapp.com</a>
-        <a class="chip" id="lnkX" href="#" target="_blank" rel="noopener" hidden>X</a>
-        <a class="chip" id="lnkInstagram" href="#" target="_blank" rel="noopener" hidden>إنستغرام</a>
-      </div>
-    </div>
-  </div>
-
-  <footer>
-    <div class="company">Mohammed Ali Bawkar Establishment</div>
-    <p style="color: var(--text-muted); font-size: 14px; margin: 10px 0;">جميع الحقوق محفوظة © 2026 ثبير</p>
-    <p><a href="https://www.freeprivacypolicy.com/live/b21b2a00-58c4-4f3b-bd3e-443331796162" target="_blank" rel="noopener" class="privacy">سياسة الخصوصية والاستخدام</a></p>
-  </footer>
-
-  <script>
-    /* ===== الإعدادات: عبّئ ما يناسبك ثم احفظ الملف ===== */
-    var CONFIG = {
-      // رابط استقبال نموذج الانضمام (مثلاً من Formspree أو Google Apps Script). بدونه يُستخدم البريد إن وُجد.
-      formEndpoint: "",
-      // رقم واتساب بالصيغة الدولية بدون + أو أصفار، مثال: 9665XXXXXXXX
-      whatsapp: "",
-      // بريد التواصل (يُستخدم للروابط ولإرسال النموذج إذا لم يوجد رابط استقبال)
-      email: "Info@thabeerapp.com",
-      // روابط الحسابات الكاملة، مثال: https://x.com/اسم_الحساب
-      x: "",
-      instagram: ""
-    };
-
-    /* روابط التواصل: لا يظهر إلا ما عبّأته */
-    (function () {
-      function show(id, href) { var el = document.getElementById(id); if (el && href) { el.href = href; el.hidden = false; } }
-      if (CONFIG.whatsapp) show("lnkWhatsapp", "https://wa.me/" + CONFIG.whatsapp.replace(/\D/g, ""));
-      if (CONFIG.email) show("lnkEmail", "mailto:" + CONFIG.email);
-      show("lnkX", CONFIG.x);
-      show("lnkInstagram", CONFIG.instagram);
-      var any = document.querySelectorAll(".contact-links a:not([hidden])").length;
-      if (!any) { var c = document.getElementById("contact"); if (c) c.style.display = "none"; }
-    })();
-
-    /* نموذج الانضمام */
-    (function () {
-      var form = document.getElementById("joinForm");
-      var status = document.getElementById("formStatus");
-      var btn = document.getElementById("submitBtn");
-      function say(msg, ok) { status.textContent = msg; status.style.color = ok ? "#ffffff" : "#ffe3e3"; }
-
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
-        if (form.website.value) return; // رسالة آلية
-        var name = form.name.value.trim(), contact = form.contact.value.trim(), role = form.role.value;
-        if (!name || !contact) { say("فضلاً أدخل الاسم ووسيلة التواصل.", false); return; }
-        var okContact = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact) || /^[+\d][\d\s-]{7,}$/.test(contact);
-        if (!okContact) { say("أدخل بريداً إلكترونياً أو رقم جوال صحيحاً.", false); return; }
-
-        if (CONFIG.formEndpoint) {
-          btn.disabled = true; say("جارٍ الإرسال...", true);
-          var data = new FormData(); data.append("name", name); data.append("contact", contact); data.append("role", role);
-          fetch(CONFIG.formEndpoint, { method: "POST", body: data, headers: { "Accept": "application/json" } })
-            .then(function (r) { if (!r.ok) throw new Error(); form.reset(); say("تم التسجيل. شكراً لك، سنوافيك بالجديد.", true); })
-            .catch(function () { say("تعذّر الإرسال الآن، حاول مرة أخرى لاحقاً.", false); })
-            .then(function () { btn.disabled = false; });
-        } else if (CONFIG.email) {
-          var body = "الاسم: " + name + "\nوسيلة التواصل: " + contact + "\nالصفة: " + role;
-          window.location.href = "mailto:" + CONFIG.email + "?subject=" + encodeURIComponent("تسجيل في قائمة انتظار ثبير") + "&body=" + encodeURIComponent(body);
-          say("سيُفتح تطبيق البريد لإكمال الإرسال.", true);
-        } else {
-          console.warn("ثبير: لم يُضبط formEndpoint ولا email في CONFIG، لذلك لا يمكن استقبال التسجيلات.");
-          say("التسجيل غير متاح حالياً، يرجى المحاولة لاحقاً.", false);
-        }
-      });
-    })();
-  </script>
-</body>
-</html>
+<script>
+var CONFIG={formEndpoint:"",whatsapp:"",email:"Info@thabeerapp.com",x:"",instagram:""};
+(function(){
+function show(id,h){var e=document.getElementById(id);if(e&&h){e.href=h;e.hidden=false}}
+if(CONFIG.whatsapp)show("lnkWhatsapp","https://wa.me/"+CONFIG.whatsapp.replace(/\D/g,""));
+if(CONFIG.email)show("lnkEmail","mailto:"+CONFIG.email);
+show("lnkX",CONFIG.x);show("lnkInstagram",CONFIG.instagram);
+if(!document.querySelectorAll(".contact-links a:not([hidden])").length){document.getElementById("contact").style.display="none"}
+var form=document.getElementById("joinForm"),status=document.getElementById("formStatus"),btn=document.getElementById("submitBtn");
+function say(m,ok){status.textContent=m;status.style.color=ok?"#fff":"#ffb4b4"}
+form.addEventListener("submit",function(e){
+e.preventDefault();if(form.website.value)return;
+var name=form.name.value.trim(),contact=form.contact.value.trim(),role=form.role.value;
+if(!name||!contact){say("فضلاً أدخل الاسم ووسيلة التواصل.",false);return}
+if(!(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact)||/^[+\d][\d\s-]{7,}$/.test(contact))){say("أدخل بريداً إلكترونياً أو رقم جوال صحيحاً.",false);return}
+if(CONFIG.formEndpoint){
+btn.disabled=true;say("جارٍ الإرسال...",true);
+var d=new FormData();d.append("name",name);d.append("contact",contact);d.append("role",role);
+fetch(CONFIG.formEndpoint,{method:"POST",body:d,headers:{Accept:"application/json"}})
+.then(function(r){if(!r.ok)throw new Error();form.reset();say("تم التسجيل. شكراً لك، سنوافيك بالجديد.",true)})
+.catch(function(){say("تعذّر الإرسال الآن، حاول مرة أخرى لاحقاً.",false)})
+.then(function(){btn.disabled=false});
+}else if(CONFIG.email){
+var b="الاسم: "+name+"\nوسيلة التواصل: "+contact+"\nالصفة: "+role;
+window.location.href="mailto:"+CONFIG.email+"?subject="+encodeURIComponent("تسجيل في قائمة انتظار ثبير")+"&body="+encodeURIComponent(b);
+say("سيُفتح تطبيق البريد لإكمال الإرسال.",true);
+}else{say("التسجيل غير متاح حالياً، يرجى المحاولة لاحقاً.",false)}
+});
+})();
+</script>
+</body></html>
